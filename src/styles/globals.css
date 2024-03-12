@@ -1,0 +1,100 @@
+* {
+  /* overflow: hidden; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.phone-main-con {
+  /* margin-top: 50px; */
+  /* border: 2px solid red; */
+  width: 100vw;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.phone-con {
+  width: 90%;
+  margin: 0 auto;
+  /* border: 2px solid red; */
+}
+.phone-con img {
+  width: 100%;
+  object-fit: contain;
+}
+.loading {
+  position: absolute;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  background: radial-gradient(circle closest-side, #2d52a2 94%, #0000)
+    right/calc(200% - 1em) 100%;
+  animation: l24 1s infinite alternate linear;
+}
+.loader::before {
+  content: "Checking for App";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side, #fff 94%, #2d52a2);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes l24 {
+  100% {
+    background-position: left;
+  }
+}
+.loader2 {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  background: radial-gradient(circle closest-side, #2d52a2 94%, #0000)
+    right/calc(200% - 1em) 100%;
+  animation: l24 1s infinite alternate linear;
+}
+.loader2::before {
+  content: "App Not Found";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side, #fff 94%, #2d52a2);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* HTML: <div class="redirect"></div> */
+.redirect {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  color: #2d52a2;
+  font-size: 30px;
+  clip-path: inset(0 3ch 0 0);
+  animation: l4 1s steps(4) infinite;
+}
+.redirect:before {
+  content: "Redirecting...";
+}
+@keyframes l4 {
+  to {
+    clip-path: inset(0 -1ch 0 0);
+  }
+}
