@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [redirecting, setRedirecting] = useState(true);
+  const [loginRedirecting, setLoginRedirecting] = useState(false);
 
   useEffect(() => {
     const redirectTimeout = setTimeout(() => {
@@ -20,11 +21,15 @@ export default function Home() {
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
+
     const articleURL = urlParams.get("url");
-    console.log(articleURL);
+    // console.log(articleURL[articleURL.length - 1]);
     if (articleURL) {
+      if (articleURL[articleURL.length - 1] === "n") {
+        setLoginRedirecting(true);
+      }
       window.location.href = articleURL;
-      // return;
+      return;
     }
     if (!redirecting) {
       // Redirect only when redirecting is false
@@ -52,14 +57,25 @@ export default function Home() {
           </div>
           {redirecting ? (
             <div className="loading">
-              <div className="loader"></div>
+              {loginRedirecting ? (
+                <div className="loaderLogin"></div>
+              ) : (
+                <div className="loader"></div>
+              )}
             </div>
           ) : (
             <div className="loading">
-              <div
-                className="loader2"
-                style={{ marginTop: "70px", marginBottom: "20px" }}
-              ></div>
+              {loginRedirecting ? (
+                <div
+                  className="loader2Login"
+                  style={{ marginTop: "70px", marginBottom: "20px" }}
+                ></div>
+              ) : (
+                <div
+                  className="loader2"
+                  style={{ marginTop: "70px", marginBottom: "20px" }}
+                ></div>
+              )}
               <div class="redirect" style={{ margin: "0 auto" }}></div>
             </div>
           )}

@@ -37,7 +37,8 @@ main {
 }
 
 /* HTML: <div class="loader"></div> */
-.loader {
+.loader,
+.loaderLogin {
   width: fit-content;
   font-weight: bold;
   font-family: monospace;
@@ -56,12 +57,23 @@ main {
   background-clip: text;
 }
 
+.loaderLogin::before {
+  content: "Successful";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side, #fff 94%, #2d52a2);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
 @keyframes l24 {
   100% {
     background-position: left;
   }
 }
-.loader2 {
+.loader2,
+.loader2Login {
   width: fit-content;
   font-weight: bold;
   font-family: monospace;
@@ -72,6 +84,15 @@ main {
 }
 .loader2::before {
   content: "App Not Found";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side, #fff 94%, #2d52a2);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.loader2Login::before {
+  content: "Application";
   line-height: 1em;
   color: #0000;
   background: inherit;
