@@ -15,7 +15,7 @@ const WelcomePage = () => {
       <p style={styles.text}>Start exploring our platform now.</p>
       <button
         style={styles.button}
-        onClick={() => (window.location.href = "mobiledirectoryapp://Login")}
+        onClick={() => (window.location.href = "app313red://Login")}
       >
         Get Started
       </button>
